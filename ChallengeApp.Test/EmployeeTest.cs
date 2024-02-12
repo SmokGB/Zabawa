@@ -1,6 +1,6 @@
 namespace ChallengeApp.Test
 {
-    public class Tests
+    public class EmployeeTest
     {
         [Test]
         public void CheckUserAddScoreMethod()
