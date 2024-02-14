@@ -3,36 +3,53 @@ namespace ChallengeApp.Test
     public class EmployeeTest
     {
         [Test]
-        public void CheckUserAddScoreMethod()
+        public void CheckMinValGetStatisticMethod()
         {
             //arrange
-            var user = new Employee("Jan", "Kowalski", 25);
-            user.AddScore(1);
-            user.AddScore(6);
+            var user = new Employee("Jan", "Kowalski");
+            user.AddGrade(10);
+            user.AddGrade(9);
+            user.AddGrade(2);
 
             //act
-            var result = user.Result;
+            Statistics usersummary = user.GetStatistics();
 
             //assert
-            Assert.AreEqual(7, result);
+            Assert.AreEqual(2, usersummary.Min);
+
         }
 
         [Test]
-        public void CheckUserAddScoreMethodWithMinusPoint()
+        public void CheckMaxValueGetStatisticMethod()
         {
             //arrange
-            var user = new Employee("Jan", "Kowalski", 25);
-
-            user.AddScore(6);
-            user.AddScore(-3);
+            var user = new Employee("Jan", "Kowalski");
+            user.AddGrade(10);
+            user.AddGrade(9);
+            user.AddGrade(2);
 
             //act
-            var result = user.Result;
+            Statistics usersummary = user.GetStatistics();
 
             //assert
-            Assert.AreEqual(3, result);
+            Assert.AreEqual(10, usersummary.Max);
         }
 
+        [Test]
+        public void CheckAvgValueGetStaticsMethod()
+        {
+            //arrange
+            var user = new Employee("Jan", "Kowalski");
+            user.AddGrade(10);
+            user.AddGrade(9);
+            user.AddGrade(2);
+
+            //act
+            Statistics usersummary = user.GetStatistics();
+
+            //assert
+            Assert.AreEqual((float)7, usersummary.Average);
+        }
 
     }
 }
