@@ -40,15 +40,15 @@ namespace ChallengeApp.Test
         {
             //arrange
             var user = new Employee("Jan", "Kowalski");
-            user.AddGrade(10);
-            user.AddGrade(9);
             user.AddGrade(2);
+            user.AddGrade(2);
+            user.AddGrade(6);
 
             //act
             Statistics usersummary = user.GetStatistics();
 
             //assert
-            Assert.AreEqual((float)7, usersummary.Average);
+            Assert.AreEqual(3.33, Math.Round(usersummary.Average, 2));
         }
 
     }
