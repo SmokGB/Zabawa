@@ -85,7 +85,6 @@
                 statistics.Max = Math.Max(statistics.Max, grade);
                 statistics.Min = Math.Min(statistics.Min, grade);
                 statistics.Average += grade;
-
             }
             statistics.Average /= this.grades.Count;
             return statistics;
@@ -123,7 +122,7 @@
                 statistics.Min = Math.Min(statistics.Min, grades[i]);
                 statistics.Average += grades[i];
                 i++;
-            } while (i < grades.Count);
+            } while (i < this.grades.Count);
             statistics.Average /= this.grades.Count;
             return statistics;
         }
@@ -137,7 +136,6 @@
 
             int i = 0;
             while (i < this.grades.Count)
-
             {
                 statistics.Max = Math.Max(statistics.Max, grades[i]);
                 statistics.Min = Math.Min(statistics.Min, grades[i]);
