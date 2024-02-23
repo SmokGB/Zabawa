@@ -3,52 +3,40 @@ namespace ChallengeApp.Test
     public class EmployeeTest
     {
         [Test]
-        public void CheckMinValGetStatisticMethod()
+        public void CheckLetterValueGetStatisticMethod()
         {
             //arrange
             var user = new Employee("Jan", "Kowalski");
-            user.AddGrade(10);
-            user.AddGrade(9);
-            user.AddGrade(2);
+            user.AddGrade('A');
+            user.AddGrade('C');
+            user.AddGrade('z');
 
             //act
             Statistics usersummary = user.GetStatistics();
 
             //assert
-            Assert.AreEqual(2, usersummary.Min);
+            Assert.AreEqual('B', usersummary.AverageLetter);
 
         }
 
         [Test]
-        public void CheckMaxValueGetStatisticMethod()
+        public void CheckValueReturnsGetStatisticMethod()
         {
             //arrange
             var user = new Employee("Jan", "Kowalski");
-            user.AddGrade(10);
-            user.AddGrade(9);
-            user.AddGrade(2);
+            user.AddGrade(50f);
+            user.AddGrade("60");
+            user.AddGrade('C');
 
             //act
             Statistics usersummary = user.GetStatistics();
 
             //assert
-            Assert.AreEqual(10, usersummary.Max);
-        }
+            Assert.AreEqual(60, usersummary.Max);
+            Assert.AreEqual(50, usersummary.Min);
+            Assert.AreEqual(56.67, Math.Round(usersummary.Average, 2));
+            Assert.AreEqual('E', usersummary.AverageLetter);
 
-        [Test]
-        public void CheckAvgValueGetStaticsMethod()
-        {
-            //arrange
-            var user = new Employee("Jan", "Kowalski");
-            user.AddGrade(2);
-            user.AddGrade(2);
-            user.AddGrade(6);
-
-            //act
-            Statistics usersummary = user.GetStatistics();
-
-            //assert
-            Assert.AreEqual(3.33, Math.Round(usersummary.Average, 2));
         }
 
     }
