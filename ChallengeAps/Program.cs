@@ -10,14 +10,20 @@ while (true)
     var input = Console.ReadLine();
 
     if (input == "q")
-
     {
         break;
     }
 
     else
     {
-        employee.AddGrade(input);
+        try
+        {
+            employee.AddGrade(input);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Exception : {e.Message}");
+        }
     }
 }
 var statistisc = employee.GetStatistics();
