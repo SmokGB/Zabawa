@@ -1,7 +1,7 @@
 ﻿// stary PC
 using ChallengeApp;
 
-var employee = new Employee("Jan", "Kowalski");
+var employee = new Employee();
 Console.WriteLine(" --------- WItaj w programie do oceny Pracownika ---------");
 Console.WriteLine("****************************************************************");
 
