@@ -1,26 +1,35 @@
-﻿
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    public class EmployeeInFile : EmployeeBase
     {
+        private const string fileName = "grades.txt";
         private List<float> grades = new List<float>();
+        private const string pathName = "grades.txt";
 
-        public string Name => "Jan";
-        public string Surname => "Kowalski";
-
-        public void AddGrade(float grade)
+        public EmployeeInFile(string name, string surname)
+            : base(name, surname)
         {
+        }
+
+        public override void AddGrade(float grade)
+        {
+
             if (grade >= 0 && grade <= 100)
             {
-                this.grades.Add(grade);
+                using (var writer = File.AppendText(fileName))
+                {
+                    writer.WriteLine(grade);
+                }
+
             }
             else
             {
-               throw new Exception("Invalide grade value");
+                throw new Exception("Invalide grade value");
             }
+
         }
 
-        public void AddGrade(string grade)
+        public override void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
             {
@@ -36,19 +45,20 @@ namespace ChallengeApp
                 throw new Exception("String is not float");
             }
         }
-        public void AddGrade(double grade)
+
+        public override void AddGrade(double grade)
         {
             float floatValue = (float)grade;
             this.AddGrade(floatValue);
-
         }
 
-        public void AddGrade(int grade)
+        public override void AddGrade(int grade)
         {
             float floatValue = grade;
             this.AddGrade(floatValue);
         }
-        public void AddGrade(char grade)
+
+        public override void AddGrade(char grade)
         {
             switch (grade)
             {
@@ -76,15 +86,33 @@ namespace ChallengeApp
                     break;
 
                 default:
-                    throw new Exception ("Range letters [a-A]-[e-E]");
+                    throw new Exception("Range letters [a-A]-[e-E]");
             }
         }
-        public Statistics GetStatistics()
+
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
+
+            
+                using (var reader = File.OpenText(fileName))
+                {
+
+                    var line = reader.ReadLine();
+
+                    while (line != null)
+                    {
+                        var number = float.Parse(line);
+                        grades.Add(number);
+                        line = reader.ReadLine();
+
+                    }
+
+                }
+         
 
             foreach (var grade in this.grades)
             {
@@ -121,3 +149,8 @@ namespace ChallengeApp
         }
     }
 }
+
+
+
+
+
