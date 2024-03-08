@@ -4,7 +4,6 @@
     {
         private const string fileName = "grades.txt";
         private List<float> grades = new List<float>();
-        private const string pathName = "grades.txt";
 
         public EmployeeInFile(string name, string surname)
             : base(name, surname)
