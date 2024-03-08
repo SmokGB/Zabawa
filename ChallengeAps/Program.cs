@@ -5,6 +5,7 @@ var employee = new EmployeeInFile("Jan", "Kowalski");
 employee.AddGrade(30f);
 employee.AddGrade(80);
 employee.AddGrade('A');
+
 /*Console.WriteLine(" --------- Witaj w programie do oceny Pracownika ---------");
 Console.WriteLine("****************************************************************");
 

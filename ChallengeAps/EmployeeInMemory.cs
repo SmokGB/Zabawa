@@ -2,7 +2,6 @@
 {
     public class EmployeeInMemory : EmployeeBase
     {
-
         private List<float> grades = new List<float>();
 
         public EmployeeInMemory(string name, string surname) 
