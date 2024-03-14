@@ -8,6 +8,9 @@ namespace ChallengeApp
         private List<float> grades = new List<float>();
         public string Name => "Jan";
         public string Surname => "Kierownik";
+
+        public event IEmployee.GradeAddedDelegate GradeAdded;
+
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)

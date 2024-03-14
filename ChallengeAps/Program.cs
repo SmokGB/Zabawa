@@ -1,12 +1,22 @@
-﻿// stary PC
-using ChallengeApp;
+﻿using ChallengeApp;
 
-var employee = new EmployeeInFile("Jan", "Kowalski"); 
-employee.AddGrade(30f);
-employee.AddGrade(80);
-employee.AddGrade('A');
+var employee = new EmployeeInMemory("Jan", "Kowalski");
+var employee2 = new EmployeeInFile("Jan", "Kowalski");
 
-/*Console.WriteLine(" --------- Witaj w programie do oceny Pracownika ---------");
+employee.GradeAdded += EmployeeGradeAdded;
+employee.GradeAdded += EmployeeFileGradeAdded;
+
+void EmployeeFileGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Zapisano ocenę w pliku");
+}
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano nową ocenę");
+}
+
+Console.WriteLine(" --------- Witaj w programie do oceny Pracownika ---------");
 Console.WriteLine("****************************************************************");
 
 while (true)
@@ -24,6 +34,7 @@ while (true)
         try
         {
             employee.AddGrade(input);
+            employee2.AddGrade(input);
         }
         catch (Exception e)
         {
@@ -32,7 +43,7 @@ while (true)
     }
 } 
 
-while (true)
+/*while (true)
 {
     Console.WriteLine("Podaj ocenę kierownika");
     var input = Console.ReadLine();

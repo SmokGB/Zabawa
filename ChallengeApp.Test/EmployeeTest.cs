@@ -6,7 +6,7 @@ namespace ChallengeApp.Test
         public void CheckLetterValueGetStatisticMethod()
         {
             //arrange
-            var user = new Employee("Jan", "Kowalski");
+            var user = new EmployeeInMemory("Jan", "Kowalski");
             user.AddGrade('A');
             user.AddGrade('C');
             user.AddGrade('z');
@@ -23,7 +23,7 @@ namespace ChallengeApp.Test
         public void CheckValueReturnsGetStatisticMethod()
         {
             //arrange
-            var user = new Employee("Jan", "Kowalski");
+            var user = new EmployeeInMemory("Jan", "Kowalski");
             user.AddGrade(50f);
             user.AddGrade("60");
             user.AddGrade('C');

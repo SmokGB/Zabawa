@@ -3,11 +3,17 @@
     public abstract class EmployeeBase : IEmployee
     {
 
+       
+        public abstract event IEmployee.GradeAddedDelegate GradeAdded;
+
         public EmployeeBase(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
         }
+
+       
+
         public string Name { get; private set; }
         public string Surname { get; private set; }
 
@@ -22,6 +28,6 @@
         public abstract void AddGrade(char grade);
 
         public abstract Statistics GetStatistics();
-      
+
     }
 }
