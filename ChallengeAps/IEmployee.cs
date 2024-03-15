@@ -1,8 +1,10 @@
-﻿namespace ChallengeApp
+﻿using static ChallengeApp.EmployeeBase;
+
+namespace ChallengeApp
 {
     public interface IEmployee
     {
-        delegate void GradeAddedDelegate(object sender, EventArgs args);
+
         event GradeAddedDelegate GradeAdded;
 
         string Name { get; }
@@ -16,3 +18,5 @@
 
     }
 }
+
+

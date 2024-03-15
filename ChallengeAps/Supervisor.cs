@@ -2,16 +2,23 @@
 namespace ChallengeApp
 {
 
-    public class Supervisor : IEmployee
+    public class Supervisor : EmployeeBase
     {
 
         private List<float> grades = new List<float>();
+
+     
+        public  override event GradeAddedDelegate GradeAdded;
+        public Supervisor(string name, string surname) : base(name, surname)
+        {
+        }
+
         public string Name => "Jan";
         public string Surname => "Kierownik";
 
-        public event IEmployee.GradeAddedDelegate GradeAdded;
+        
 
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -23,7 +30,7 @@ namespace ChallengeApp
             }
         }
 
-        public void AddGrade(string grade)
+        public override void AddGrade(string grade)
         {
             switch (grade)
             {
@@ -95,20 +102,20 @@ namespace ChallengeApp
         }
 
 
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade)
         {
             float floatValue = (float)grade;
             this.AddGrade(floatValue);
 
         }
 
-        public void AddGrade(int grade)
+        public override void AddGrade(int grade)
         {
             float floatValue = grade;
             this.AddGrade(floatValue);
         }
 
-        public void AddGrade(char grade)
+        public override void AddGrade(char grade)
         {
             switch (grade)
             {
@@ -139,7 +146,7 @@ namespace ChallengeApp
                     throw new Exception("Range letters [a-A]-[e-E]");
             }
         }
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
@@ -179,5 +186,6 @@ namespace ChallengeApp
 
             return statistics;
         }
+
     }
 }

@@ -5,8 +5,8 @@ namespace ChallengeApp
     {
         private List<float> grades = new List<float>();
 
-        //public delegate void GradeAddedDelagate(object sender, EventArgs args);
-        public override event IEmployee.GradeAddedDelegate GradeAdded;
+    
+        public override event GradeAddedDelegate GradeAdded;
 
         public EmployeeInMemory(string name, string surname)
             : base(name, surname)

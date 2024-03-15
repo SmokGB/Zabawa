@@ -5,13 +5,12 @@
         private const string fileName = "grades.txt";
         private List<float> grades = new List<float>();
 
-        public override event IEmployee.GradeAddedDelegate GradeAdded;
+        public override event GradeAddedDelegate GradeAdded;
         public EmployeeInFile(string name, string surname)
             : base(name, surname)
         {
 
         }
-
 
         public override void AddGrade(float grade)
         {

@@ -38,6 +38,5 @@ namespace ChallengeApp.Test
             Assert.AreEqual('E', usersummary.AverageLetter);
 
         }
-
     }
 }
