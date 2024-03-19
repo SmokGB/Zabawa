@@ -1,10 +1,11 @@
 ﻿using ChallengeApp;
 
-var employee = new EmployeeInMemory("Jan", "Kowalski");
+//var employee = new EmployeeInMemory("Jan", "Kowalski");
+
 var employee2 = new EmployeeInFile("Jan", "Kowalski");
 
-employee.GradeAdded += EmployeeGradeAdded;
-employee.GradeAdded += EmployeeFileGradeAdded;
+employee2.GradeAdded += EmployeeGradeAdded;
+employee2.GradeAdded += EmployeeFileGradeAdded;
 
 void EmployeeFileGradeAdded(object sender, EventArgs args)
 {
@@ -33,7 +34,7 @@ while (true)
     {
         try
         {
-            employee.AddGrade(input);
+            //employee.AddGrade(input);
             employee2.AddGrade(input);
         }
         catch (Exception e)
@@ -41,7 +42,7 @@ while (true)
             Console.WriteLine($"Exception : {e.Message}");
         }
     }
-} 
+}
 
 /*while (true)
 {
@@ -66,11 +67,13 @@ while (true)
     }
 }
 */
-var statistisc = employee.GetStatistics();
+var statistisc = employee2.GetStatistics();
 //var statistiscSupervisor=supervisor.GetStatistics();
-Console.WriteLine($"**************** Dane ocen pracownika -> {employee.Name} {employee.Surname} *****************");
+Console.WriteLine($"**************** Dane ocen pracownika -> {employee2.Name} {employee2.Surname} *****************");
 Console.WriteLine($"min: {statistisc.Min}");
 Console.WriteLine($"max: {statistisc.Max}");
+Console.WriteLine($"Suma ocen : {statistisc.Sum}");
+Console.WriteLine($"Ilosc ocen : {statistisc.Count}");
 Console.WriteLine($"AVG: {statistisc.Average:n2}");
 Console.WriteLine($"Ocena : {statistisc.AverageLetter}");
 /*Console.WriteLine($"**************** Dane ocen kierownoika -> {supervisor.Name} {supervisor.Surname} *****************");

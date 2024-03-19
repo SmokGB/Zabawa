@@ -5,7 +5,7 @@ namespace ChallengeApp
     {
         private List<float> grades = new List<float>();
 
-    
+
         public override event GradeAddedDelegate GradeAdded;
 
         public EmployeeInMemory(string name, string surname)
@@ -95,39 +95,10 @@ namespace ChallengeApp
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
 
             foreach (var grade in this.grades)
             {
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
-
-            }
-            statistics.Average /= this.grades.Count;
-
-            switch (statistics.Average)
-            {
-                case var a when a >= 90:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var a when a >= 80:
-                    statistics.AverageLetter = 'B';
-                    break;
-
-                case var a when a >= 70:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var a when a >= 60:
-                    statistics.AverageLetter = 'D';
-                    break;
-
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
-
+                statistics.AddGrade(grade);
             }
 
             return statistics;
