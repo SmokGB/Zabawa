@@ -4,9 +4,7 @@ namespace ChallengeApp
 {
     public interface IEmployee
     {
-
         event GradeAddedDelegate GradeAdded;
-
         string Name { get; }
         string Surname { get; }
         void AddGrade(float grade);
@@ -15,7 +13,6 @@ namespace ChallengeApp
         void AddGrade(int grade);
         void AddGrade(char grade);
         Statistics GetStatistics();
-
     }
 }
 

@@ -1,6 +1,4 @@
-﻿using System.Text.Unicode;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
     public class EmployeeInFile : EmployeeBase
     {
@@ -13,6 +11,7 @@ namespace ChallengeApp
         {
 
         }
+
 
         public override void AddGrade(float grade)
         {
@@ -98,67 +97,10 @@ namespace ChallengeApp
                     throw new Exception("range letters [a-a]-[e-e]");
             }
         }
-        /* moja wersja
-        public override statistics getstatistics()
+
+        public override Statistics GetStatistics()
         {
-
-            var statistics = new statistics();
-            statistics.average = 0;
-            statistics.max = float.minvalue;
-            statistics.min = float.maxvalue;
-
-
-            using (var reader = file.opentext(filename))
-            {
-
-                var line = reader.readline();
-
-                while (line != null)
-                {
-                    var number = float.parse(line);
-                    grades.add(number);
-                    line = reader.readline();
-                }
-            }
-
-
-            foreach (var grade in this.grades)
-            {
-                statistics.max = math.max(statistics.max, grade);
-                statistics.min = math.min(statistics.min, grade);
-                statistics.average += grade;
-
-            }
-            statistics.average /= this.grades.count;
-
-            switch (statistics.average)
-            {
-                case var a when a >= 90:
-                    statistics.averageletter = 'a';
-                    break;
-                case var a when a >= 80:
-                    statistics.averageletter = 'b';
-                    break;
-
-                case var a when a >= 70:
-                    statistics.averageletter = 'c';
-                    break;
-                case var a when a >= 60:
-                    statistics.averageletter = 'd';
-                    break;
-
-                default:
-                    statistics.averageletter = 'e';
-                    break;
-
-            }
-
-            return statistics;
-        }
-        */
-        public override Statistics GetStatistics() //wersja Adma elegantsza
-        {
-            var gradesFromFile = this.ReadGradesFromFile();   // zwraca listę ocen
+            var gradesFromFile = this.ReadGradesFromFile();
             Statistics statistics = new Statistics();
 
             foreach (var grade in this.grades)
@@ -169,13 +111,6 @@ namespace ChallengeApp
             return statistics;
 
         }
-
-        /*
-        private Statistics CountStatistics(List<float> gradesromfile)
-        {
-            var gradesFromFile = this.ReadGradesFromFile();
-            var result = this.CountStatistics(gradesFromFile);
-        */
 
         private List<float> ReadGradesFromFile()
         {

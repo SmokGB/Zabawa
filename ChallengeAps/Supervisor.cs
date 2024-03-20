@@ -1,5 +1,4 @@
-﻿
-//namespace ChallengeApp
+﻿//namespace ChallengeApp
 //{
 
 //    public class Supervisor : EmployeeBase

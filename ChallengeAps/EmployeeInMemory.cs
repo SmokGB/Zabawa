@@ -91,7 +91,6 @@ namespace ChallengeApp
                     throw new Exception("Range letters [a-A]-[e-E]");
             }
         }
-
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();

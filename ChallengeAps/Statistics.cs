@@ -52,7 +52,5 @@
             this.Min = Math.Min(this.Min, grade);
             this.Max = Math.Max(this.Max, grade);
         }
-
-
     }
 }

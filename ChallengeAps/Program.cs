@@ -1,7 +1,5 @@
 ﻿using ChallengeApp;
 
-//var employee = new EmployeeInMemory("Jan", "Kowalski");
-
 var employee2 = new EmployeeInFile("Jan", "Kowalski");
 
 employee2.GradeAdded += EmployeeGradeAdded;
@@ -34,7 +32,6 @@ while (true)
     {
         try
         {
-            //employee.AddGrade(input);
             employee2.AddGrade(input);
         }
         catch (Exception e)
@@ -44,31 +41,7 @@ while (true)
     }
 }
 
-/*while (true)
-{
-    Console.WriteLine("Podaj ocenę kierownika");
-    var input = Console.ReadLine();
-
-    if (input == "q")
-    {
-        break;
-    }
-
-    else
-    {
-        try
-        {
-            supervisor.AddGrade(input);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"Exception : {e.Message}");
-        }
-    }
-}
-*/
 var statistisc = employee2.GetStatistics();
-//var statistiscSupervisor=supervisor.GetStatistics();
 Console.WriteLine($"**************** Dane ocen pracownika -> {employee2.Name} {employee2.Surname} *****************");
 Console.WriteLine($"min: {statistisc.Min}");
 Console.WriteLine($"max: {statistisc.Max}");
@@ -76,8 +49,3 @@ Console.WriteLine($"Suma ocen : {statistisc.Sum}");
 Console.WriteLine($"Ilosc ocen : {statistisc.Count}");
 Console.WriteLine($"AVG: {statistisc.Average:n2}");
 Console.WriteLine($"Ocena : {statistisc.AverageLetter}");
-/*Console.WriteLine($"**************** Dane ocen kierownoika -> {supervisor.Name} {supervisor.Surname} *****************");
-Console.WriteLine($"min: {statistiscSupervisor.Min}");
-Console.WriteLine($"max: {statistiscSupervisor.Max}");
-Console.WriteLine($"AVG: {statistiscSupervisor.Average:n2}");
-Console.WriteLine($"Ocena : {statistiscSupervisor.AverageLetter}"); */
