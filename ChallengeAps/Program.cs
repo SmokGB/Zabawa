@@ -1,5 +1,4 @@
 ﻿using ChallengeApp;
-
 var employee2 = new EmployeeInFile("Jan", "Kowalski");
 
 employee2.GradeAdded += EmployeeGradeAdded;
